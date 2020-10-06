@@ -48,6 +48,13 @@ class ToDoeyTableViewController: UIViewController, UITableViewDelegate, UITableV
         return cell
     }
     
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            todos.remove(at: indexPath.row)
+            toDoeyTableView.deleteRows(at: [indexPath], with: .fade)
+        }
+    }
+    
     @IBAction func unwind(segue: UIStoryboardSegue) {
         
     }
